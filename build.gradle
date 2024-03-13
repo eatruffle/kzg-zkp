@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://artifacts.consensys.net/public/maven/maven/"
+    }
+}
+
+dependencies {
+    implementation("tech.pegasys:jc-kzg-4844:0.8.0")
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation(group: 'org.apache.tomcat', name: 'tomcat-util', version: '8.5.5')
+    implementation group: 'org.web3j', name: 'core', version: '4.11.0'
+    implementation group: 'org.web3j', name: 'crypto', version: '4.11.0'
+    implementation group: 'org.web3j', name: 'utils', version: '4.11.0'
+// https://mvnrepository.com/artifact/org.apache.tuweni/tuweni-bytes
+    // https://mvnrepository.com/artifact/io.tmio/tuweni-bytes
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
