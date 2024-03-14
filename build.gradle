@@ -11,6 +11,12 @@ java {
     sourceCompatibility = '17'
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.my.app.Main'
+    }
+}
+
 repositories {
     mavenCentral()
     maven {
@@ -19,13 +25,14 @@ repositories {
 }
 
 dependencies {
-    implementation("tech.pegasys:jc-kzg-4844:0.8.0")
+   // implementation("tech.pegasys:jc-kzg-4844:0.8.0")
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation(group: 'org.apache.tomcat', name: 'tomcat-util', version: '8.5.5')
     implementation group: 'org.web3j', name: 'core', version: '4.11.0'
     implementation group: 'org.web3j', name: 'crypto', version: '4.11.0'
     implementation group: 'org.web3j', name: 'utils', version: '4.11.0'
+    implementation files('libs/jc-kzg-4844-1.0.0.jar')
 // https://mvnrepository.com/artifact/org.apache.tuweni/tuweni-bytes
     // https://mvnrepository.com/artifact/io.tmio/tuweni-bytes
 
